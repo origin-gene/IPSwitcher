@@ -62,6 +62,7 @@ goto end
 
 @rem =======================================================
 :dhcp
+
 cmd /c netsh interface ip set address %networkname% dhcp
 cmd /c netsh interface ip set dns %networkname% dhcp 
 echo 完成
