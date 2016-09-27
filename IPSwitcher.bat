@@ -65,7 +65,7 @@ goto end
 
 netsh interface ip set address %networkname% dhcp
 netsh interface ip set dns %networkname% dhcp 
-
+ipconfig /flushdns 
 echo 完成
 pause
 exit
@@ -76,7 +76,7 @@ exit
 netsh interface ipv4 set dnsservers %networkname% static %DNS1% primary no
 netsh interface ipv4 add dnsservers %networkname% %DNS2% validate=no
 netsh interface ipv4 set address %networkname% static %IP% %Mask% %Gateway%
-
+ipconfig /flushdns 
 echo 完成
 pause
 exit
