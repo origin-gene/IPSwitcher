@@ -1,35 +1,35 @@
 @echo off 
 
-set networkname="本地连接"
+set networkname="Ethernet"
 
-@rem 这里是实验室的IP地址信息  =====================================
+@rem This is one place  =====================================
 set labIPAddr=192.168.0.89
 set labMask=255.255.255.0
 set labGateway=192.168.0.1
 set labDNS1=114.114.114.114
 set labDNS2=114.114.115.115
 
-@rem 这里是宿舍的IP地址信息  =====================================
+@rem this is another place  =====================================
 set dormIPAddr=192.168.0.89
 set dormMask=255.255.255.0
 set dormGateway=192.168.0.1
 set dormDNS1=8.8.8.8
 set dormDNS2=8.8.4.4
 
-echo 注意：本脚本需要右键使用管理员权限运行！！！
+echo Need run as Administrator !!!
 
 echo     ==================== IP Switcher =======================
 
-echo       1.设置实验室的IP
+echo       1.set ip for place1
 echo.
-echo       2.设置宿舍的IP
+echo       2.set ip for place2
 echo.
-echo       3.设置成DHCP自动获取
+echo       3.set ip by dhcp
 echo.
-echo       4.退出 
+echo       4.quit 
 echo.
 
-set /p choice=                 输入选择的操作[eg:1,2...]：
+set /p choice=                 input your choice：
 
 if "%choice%"=="1"  goto lab
 if "%choice%"=="2"  goto dorm
@@ -66,7 +66,7 @@ goto end
 netsh interface ip set address %networkname% dhcp
 netsh interface ip set dns %networkname% dhcp 
 ipconfig /flushdns 
-echo 完成
+echo Finish
 pause
 exit
 
@@ -77,6 +77,6 @@ netsh interface ipv4 set dnsservers %networkname% static %DNS1% primary no
 netsh interface ipv4 add dnsservers %networkname% %DNS2% no
 netsh interface ipv4 set address %networkname% static %IP% %Mask% %Gateway%
 ipconfig /flushdns 
-echo 完成
+echo Finish
 pause
 exit
