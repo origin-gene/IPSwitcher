@@ -1,3 +1,3 @@
 # IPSwitcher
 
-# 这个脚本用来方便经常在实验室和寝室两地带着电脑奔波，而苦于频繁设置IP地址的同学 
+# A Script for setting IP address when switch a place to another place. 
