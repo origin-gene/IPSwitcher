@@ -1,3 +1,3 @@
 # IPSwitcher
 
-# A Script for setting IP address when switch a place to another place. 
+# A Script for config static IP address when switch a place to another place. 
